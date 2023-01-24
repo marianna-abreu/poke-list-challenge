@@ -1,16 +1,6 @@
 import axios from "axios";
-import { Props } from "../components/PokemonList";
-
-const api = axios.create({
-  baseURL: "https://pokeapi.co/api/v2",
-});
 
 const pokemonsPerPage = 21;
-
-type ApiResult = {
-  pokemons: Array<Props>;
-  count: number;
-};
 
 export const getListPokemon = async (
   currentPage: number
@@ -36,4 +26,24 @@ export const getListPokemon = async (
   return { pokemons: await Promise.all(pokemonList), count: data.count };
 };
 
-export default api;
+export const getPokemonInfo = async (
+  name: string
+): Promise<PokemonDescriptions> => {
+  const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+
+  return {
+    name: data.name,
+    image: data.sprites.other["official-artwork"].front_default,
+    height: data.height,
+    weight: data.weight,
+    abilities: data.abilities.map(
+      (a: { ability: { name: string } }) => a.ability.name
+    ),
+    stats: data.stats.map(
+      (s: { base_stat: number; stat: { name: string } }) => ({
+        base_stat: s.base_stat,
+        stat: s.stat.name,
+      })
+    ),
+  };
+};

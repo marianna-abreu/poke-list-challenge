@@ -10,15 +10,8 @@ import {
   Link,
 } from "./styles";
 
-export interface Props {
-  id: string;
-  name: string;
-  image: string;
-  count: number;
-}
-
 const PokeList: React.FC = () => {
-  const [pokemons, setPokemons] = useState<Props[]>([]);
+  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   const [pokemonsPerPage] = useState(21);

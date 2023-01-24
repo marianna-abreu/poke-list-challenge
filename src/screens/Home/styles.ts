@@ -7,11 +7,11 @@ export const HomeWrapper = styled("div")({
   marginBottom: "0",
 });
 
-export const FavButton = styled(Button)({
+export const GoToFavsButton = styled(Button)({
   margin: "1rem 0 1rem 0",
 });
 
-export const Link = styled("a")({
+export const GoToFavs = styled("a")({
   display: "flex",
   justifyContent: "flex-start",
   width: "150px",
