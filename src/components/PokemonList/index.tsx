@@ -11,11 +11,9 @@ import {
 } from "./styles";
 
 const PokeList: React.FC = () => {
-  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
+  //pagination config
   const [currentPage, setCurrentPage] = useState(0);
-
   const [pokemonsPerPage] = useState(21);
-
   const [totalPokemon, setTotalPokemon] = useState<number>(1);
 
   const onPaginationClick = (event: any, value: any) => {
@@ -23,6 +21,9 @@ const PokeList: React.FC = () => {
   };
 
   const totalPage = Math.ceil(totalPokemon / pokemonsPerPage);
+
+  // get pokemons for api and saving state
+  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
 
   const handlePokemonList = useCallback(async () => {
     const { pokemons, count } = await getListPokemon(currentPage);

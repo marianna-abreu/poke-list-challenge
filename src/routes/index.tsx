@@ -3,6 +3,8 @@ import FavsPage from "../screens/Favs/FavsPage";
 import HomePage from "../screens/Home/HomePage";
 import PokemonPage from "../screens/Pokemon/PokemonPage";
 
+// create routes of application
+
 const ScreensRoutes: React.FC = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />

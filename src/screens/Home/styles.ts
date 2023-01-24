@@ -3,8 +3,7 @@ import { styled } from "@mui/system";
 
 export const HomeWrapper = styled("div")({
   display: "grid",
-  margin: "3rem",
-  marginBottom: "0",
+  margin: "2rem 3rem 0 3rem",
 });
 
 export const GoToFavsButton = styled(Button)({
@@ -17,10 +16,24 @@ export const GoToFavs = styled("a")({
   width: "150px",
 });
 
-export const Title = styled(Typography)({
-  fontSize: "3rem;",
+export const Teste = styled("div")({
+  margin: "auto",
+  "@keyframes pulsate": {
+    from: {
+      opacity: 1,
+      transform: "scale(1)",
+    },
+    to: {
+      opacity: 1,
+      transform: "scale(1.5)",
+    },
+  },
+  animation: "pulsate 5s forwards ease",
 });
 
 export const Logo = styled("img")({
-  width: "500px",
+  minWidth: "300px",
+  maxWidth: "400px",
+  width: "50%",
+  margin: "auto",
 });

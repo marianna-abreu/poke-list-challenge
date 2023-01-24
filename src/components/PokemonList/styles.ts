@@ -7,14 +7,14 @@ export const DisplayList = styled("div")({
   display: "grid",
   gridGap: "3rem",
   rowGap: "2rem",
-  marginTop: "2rem",
+  marginTop: "1rem",
 
   gridTemplateColumns: "repeat( auto-fill, minmax(200px, 1fr) )",
 });
 
 export const CardPokemon = styled("div")({
   backgroundColor: "#DBD6CE",
-  width: "15rem",
+  width: "100%",
   borderRadius: "1rem",
   display: "flex",
   flexDirection: "column",
@@ -46,5 +46,5 @@ export const CountPages = styled(Pagination)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  marginTop: "5rem",
+  marginTop: "2rem",
 });

@@ -2,16 +2,19 @@ import axios from "axios";
 
 const pokemonsPerPage = 21;
 
+// make api request for get pokemon list
 export const getListPokemon = async (
   currentPage: number
 ): Promise<ApiResult> => {
   const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon`, {
+    // params of limit pokemons per page and pagination
     params: {
       limit: pokemonsPerPage,
       offset: currentPage,
     },
   });
 
+  // make second api request for get more information each pokemon
   const pokemonList = await data.results.map(
     async (pokemonResult: { name: string; url: string }) => {
       const { data } = await axios.get(pokemonResult.url);
@@ -26,6 +29,7 @@ export const getListPokemon = async (
   return { pokemons: await Promise.all(pokemonList), count: data.count };
 };
 
+// make an api request for get details each pokemon for descriptions screens
 export const getPokemonInfo = async (
   name: string
 ): Promise<PokemonDescriptions> => {
