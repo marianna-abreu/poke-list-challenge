@@ -5,29 +5,35 @@ const api = axios.create({
   baseURL: "https://pokeapi.co/api/v2",
 });
 
-const PokemonsPerPage = 21;
+const pokemonsPerPage = 21;
 
-export const getListPokemon = async (currentPage: number): Promise<Props[]> => {
+type ApiResult = {
+  pokemons: Array<Props>;
+  count: number;
+};
+
+export const getListPokemon = async (
+  currentPage: number
+): Promise<ApiResult> => {
   const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon`, {
     params: {
-      limit: PokemonsPerPage,
+      limit: pokemonsPerPage,
       offset: currentPage,
     },
   });
 
   const pokemonList = await data.results.map(
-    async (pokemonResult: { name: string; url: string; count: number }) => {
+    async (pokemonResult: { name: string; url: string }) => {
       const { data } = await axios.get(pokemonResult.url);
 
       return {
         name: pokemonResult.name,
         url: pokemonResult.url,
-        count: pokemonResult.count,
         image: data.sprites.other["official-artwork"].front_default,
       };
     }
   );
-  return await Promise.all(pokemonList);
+  return { pokemons: await Promise.all(pokemonList), count: data.count };
 };
 
 export default api;

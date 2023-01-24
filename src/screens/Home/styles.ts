@@ -20,3 +20,7 @@ export const Link = styled("a")({
 export const Title = styled(Typography)({
   fontSize: "3rem;",
 });
+
+export const Logo = styled("img")({
+  width: "500px",
+});

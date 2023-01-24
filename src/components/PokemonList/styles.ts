@@ -5,11 +5,11 @@ export const Wrapper = styled("div")({});
 
 export const DisplayList = styled("div")({
   display: "grid",
-  gridGap: "2rem;",
+  gridGap: "3rem",
   rowGap: "2rem",
   marginTop: "2rem",
 
-  gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )",
+  gridTemplateColumns: "repeat( auto-fill, minmax(200px, 1fr) )",
 });
 
 export const CardPokemon = styled("div")({

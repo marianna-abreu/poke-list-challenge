@@ -14,27 +14,32 @@ export interface Props {
   id: string;
   name: string;
   image: string;
+  count: number;
 }
 
 const PokeList: React.FC = () => {
   const [pokemons, setPokemons] = useState<Props[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const [PokemonsPerPage] = useState(21);
+  const [pokemonsPerPage] = useState(21);
+
+  const [totalPokemon, setTotalPokemon] = useState<number>(1);
 
   const onPaginationClick = (event: any, value: any) => {
-    setCurrentPage(value * PokemonsPerPage - PokemonsPerPage);
+    setCurrentPage(value * pokemonsPerPage - pokemonsPerPage);
   };
 
+  const totalPage = Math.ceil(totalPokemon / pokemonsPerPage);
+
   const handlePokemonList = useCallback(async () => {
-    setPokemons(await getListPokemon(currentPage));
+    const { pokemons, count } = await getListPokemon(currentPage);
+    setPokemons(pokemons);
+    setTotalPokemon(count);
   }, [currentPage]);
 
   useEffect(() => {
     handlePokemonList();
-  }, [currentPage]);
-
-  console.log(pokemons);
+  }, [currentPage, handlePokemonList]);
 
   return (
     <Wrapper>
@@ -50,7 +55,7 @@ const PokeList: React.FC = () => {
           );
         })}
       </DisplayList>
-      <CountPages count={46} onChange={onPaginationClick} />
+      <CountPages count={totalPage} onChange={onPaginationClick} />
     </Wrapper>
   );
 };

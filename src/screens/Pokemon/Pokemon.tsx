@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 const Pokemon = () => {
   const { name } = useParams();
 
-  return <div> {name} aqui vai ser o pokemon</div>;
+  return <div> {name} </div>;
 };
 
 export default Pokemon;
