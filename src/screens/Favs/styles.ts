@@ -26,6 +26,17 @@ export const CardPokemon = styled("div")({
   padding: "10px 0 10px",
   ":hover": {
     boxShadow: "5px 10px 10px #CFCAC2",
+    "@keyframes pulsate": {
+      from: {
+        opacity: 1,
+        transform: "scale(1)",
+      },
+      to: {
+        opacity: 1,
+        transform: "scale(1.2)",
+      },
+    },
+    animation: "pulsate 2s forwards ease",
   },
 });
 

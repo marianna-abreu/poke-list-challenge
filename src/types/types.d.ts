@@ -4,15 +4,8 @@ type PokemonDescriptions = {
   image: string;
   height: number;
   weight: number;
-  abilities: {
-    name: string;
-  };
-  stats: {
-    base_stat: number;
-    stat: {
-      name: string;
-    };
-  };
+  abilities: string[];
+  stats: Array<{ base_stat: number; name: string }>;
 };
 
 interface PokemonProps {

@@ -47,7 +47,7 @@ export const getPokemonInfo = async (
     stats: data.stats.map(
       (s: { base_stat: number; stat: { name: string } }) => ({
         base_stat: s.base_stat,
-        stat: s.stat.name,
+        name: s.stat.name,
       })
     ),
   };

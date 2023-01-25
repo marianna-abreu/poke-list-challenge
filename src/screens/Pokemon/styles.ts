@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, LinearProgress, linearProgressClasses } from "@mui/material";
 import { grid, styled } from "@mui/system";
 
 export const WrapperPokemonPage = styled("div")({
@@ -9,16 +9,15 @@ export const WrapperPokemonPage = styled("div")({
 
 export const PokeCard = styled("div")({
   backgroundColor: "#DBD6CE",
-  border: "1px",
   borderRadius: "100px",
   maxWidth: "400px",
   minWidth: "200px",
   width: "50%",
-  minHeight: "100px",
-  maxHeight: "600px",
+
   height: "100%",
-  display: "grid",
-  justifyItems: "center",
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
   padding: "4rem 4rem 0rem 4rem ",
 });
 
@@ -36,19 +35,25 @@ export const PokemonImage = styled("img")({
 
 export const Descriptions = styled("div")({
   display: "grid",
+  width: "50%",
+  minWidth: "200px",
 });
 
-export const PokemonDetails = styled("span")({
-  justifyItems: "flex-start",
+export const PokemonText = styled("span")({
   textTransform: "capitalize",
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center",
+  columnGap: "0.5rem",
 });
 
 export const AddFavButton = styled(Button)({
   color: "#000B",
   border: "none",
-  height: "70px",
+  height: "50px",
   padding: "1rem",
-  marginTop: "1rem",
+  margin: "auto",
+
   ":hover": {
     color: "green",
     border: "1px solid green",
@@ -58,7 +63,7 @@ export const AddFavButton = styled(Button)({
 
 export const BackToHome = styled("a")({
   textDecoration: "none",
-  marginTop: "5rem",
+  marginTop: "4rem",
 });
 
 export const BackToHomeButton = styled(Button)({
@@ -67,4 +72,31 @@ export const BackToHomeButton = styled(Button)({
   ":hover": {
     color: "purple",
   },
+});
+
+export const PokemonStats = styled("div")({
+  display: "grid",
+  minWidth: "200px",
+  width: "50%",
+});
+
+export const Progress = styled(LinearProgress)({
+  width: "70%",
+  marginRight: "1rem",
+  backgroundColor: "purple",
+
+  [` & .${linearProgressClasses.bar}`]: {
+    backgroundColor: "yellow",
+    opacity: "50%",
+  },
+});
+
+export const StatName = styled("strong")({
+  width: "100%",
+});
+
+export const Pokemon = styled("div")({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
 });

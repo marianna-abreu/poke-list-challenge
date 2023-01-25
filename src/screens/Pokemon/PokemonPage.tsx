@@ -10,9 +10,13 @@ import {
   BackToHomeButton,
   Descriptions,
   PokeCard,
-  PokemonDetails,
+  PokemonText,
   PokemonImage,
+  Progress,
   WrapperPokemonPage,
+  PokemonStats,
+  StatName,
+  Pokemon,
 } from "./styles";
 
 const PokemonPage: React.FC = () => {
@@ -33,19 +37,42 @@ const PokemonPage: React.FC = () => {
   // garanted have a pokemon
   if (!pokemonDetails) return null;
 
-  // const teste = pokemonDetails.abilities.name.map();
-
-  console.log(pokemonDetails.abilities.name);
   return (
     <WrapperPokemonPage>
       <PokeCard>
-        <PokemonImage src={pokemonDetails?.image} />
-        <Descriptions>
-          <PokemonDetails>Name: {pokemonDetails.name}</PokemonDetails>
-          <PokemonDetails>Height: {pokemonDetails.height / 10}</PokemonDetails>
-          <PokemonDetails>Weight: {pokemonDetails.weight / 10}</PokemonDetails>
-          <PokemonDetails>Id: {pokemonDetails.id}</PokemonDetails>
-        </Descriptions>
+        <Pokemon>
+          <PokemonImage src={pokemonDetails?.image} />
+          <Descriptions>
+            <PokemonText>
+              <strong>Name: </strong>
+              {pokemonDetails.name}
+            </PokemonText>
+            <PokemonText>
+              <strong>Height: </strong>
+              {pokemonDetails.height / 10} m
+            </PokemonText>
+            <PokemonText>
+              <strong>Weight:</strong> {pokemonDetails.weight / 10} kg
+            </PokemonText>
+            <PokemonText>
+              <strong>Id:</strong> #{pokemonDetails.id}
+            </PokemonText>
+            {pokemonDetails.abilities.map((ability: string) => (
+              <PokemonText>
+                <strong>Ability:</strong> {ability}
+              </PokemonText>
+            ))}
+          </Descriptions>
+          <PokemonStats>
+            {pokemonDetails.stats.map((stat) => (
+              <PokemonText>
+                <StatName>{stat.name}</StatName>
+                <Progress variant="determinate" value={stat.base_stat} />
+                {stat.base_stat}
+              </PokemonText>
+            ))}
+          </PokemonStats>
+        </Pokemon>
         <AddFavButton
           onClick={() => {
             addFavorite(pokemonDetails);
