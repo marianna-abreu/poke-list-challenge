@@ -1,24 +1,29 @@
 import { Favorite } from "@mui/icons-material";
 import PokeList from "../../components/PokemonList";
-import { GoToFavsButton, HomeWrapper, GoToFavs, Logo, Teste } from "./styles";
+import {
+  GoToFavsButton,
+  HomeWrapper,
+  GoToFavs,
+  Logo,
+  Animation,
+} from "./styles";
 import logo from "../../assets/logo.png";
-import { Fade, Grow } from "@mui/material";
 
 //Main Page
 
 const HomePage = () => {
   return (
     <HomeWrapper>
-      <Teste>
+      <Animation>
         <Logo src={logo} />
-      </Teste>
+      </Animation>
       <GoToFavs href={`/my-favs`}>
         <GoToFavsButton
           variant="outlined"
           startIcon={<Favorite />}
           color="secondary"
         >
-          Favoritos
+          Seus Favoritos
         </GoToFavsButton>
       </GoToFavs>
       <PokeList />

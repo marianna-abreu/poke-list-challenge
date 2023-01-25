@@ -8,16 +8,21 @@ export const HomeWrapper = styled("div")({
 
 export const GoToFavsButton = styled(Button)({
   margin: "1rem 0 1rem 0",
+
+  ":hover": {
+    color: "purple",
+  },
 });
 
 export const GoToFavs = styled("a")({
   display: "flex",
   justifyContent: "flex-start",
-  width: "150px",
+  textDecoration: "none",
 });
 
-export const Teste = styled("div")({
+export const Animation = styled("div")({
   margin: "auto",
+  paddingLeft: "50px",
   "@keyframes pulsate": {
     from: {
       opacity: 1,

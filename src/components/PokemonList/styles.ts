@@ -39,7 +39,8 @@ export const PokemonImage = styled("img")({
 });
 
 export const PokemonName = styled(Typography)({
-  textDecoration: "none",
+  fontSize: "1.5rem",
+  textTransform: "capitalize",
 });
 
 export const CountPages = styled(Pagination)({

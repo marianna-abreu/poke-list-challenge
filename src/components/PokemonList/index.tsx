@@ -42,8 +42,8 @@ const PokeList: React.FC = () => {
           return (
             <Link href={`/pokemon/${pokemon.name}`}>
               <CardPokemon>
-                <PokemonImage src={pokemon.image} />
-                <PokemonName variant="h5">{pokemon.name}</PokemonName>
+                <PokemonImage src={pokemon.image} alt="Pokemon Image" />
+                <PokemonName>{pokemon.name}</PokemonName>
               </CardPokemon>
             </Link>
           );
