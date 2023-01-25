@@ -25,14 +25,14 @@ export const FavsPage: React.FC = () => {
 
   return (
     <FavsPageWrapper>
-      <TitlePage>FAVORITOS</TitlePage>
+      <TitlePage>FAVORITES</TitlePage>
       <BackToHome href={`/`}>
         <BackToHomeButton
           variant="outlined"
           startIcon={<Home />}
           color="secondary"
         >
-          Volta para Home
+          Back to Home
         </BackToHomeButton>
       </BackToHome>
       <DisplayList>
@@ -50,7 +50,7 @@ export const FavsPage: React.FC = () => {
                   setListFavorites(removeFavorite(favPokemon));
                 }}
               >
-                remove favorito
+                remove favorite
               </RemoveButton>
             </Tooltip>
           </CardPokemon>

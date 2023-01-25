@@ -23,7 +23,7 @@ const HomePage = () => {
           startIcon={<Favorite />}
           color="secondary"
         >
-          Seus Favoritos
+          Your Favorites
         </GoToFavsButton>
       </GoToFavs>
       <PokeList />

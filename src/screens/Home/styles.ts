@@ -8,7 +8,7 @@ export const HomeWrapper = styled("div")({
 
 export const GoToFavsButton = styled(Button)({
   margin: "1rem 0 1rem 0",
-
+  width: "200px",
   ":hover": {
     color: "purple",
   },
@@ -18,6 +18,7 @@ export const GoToFavs = styled("a")({
   display: "flex",
   justifyContent: "flex-start",
   textDecoration: "none",
+  width: "200px",
 });
 
 export const Animation = styled("div")({
@@ -33,7 +34,7 @@ export const Animation = styled("div")({
       transform: "scale(1.5)",
     },
   },
-  animation: "pulsate 5s forwards ease",
+  animation: "pulsate 3s forwards ease",
 });
 
 export const Logo = styled("img")({

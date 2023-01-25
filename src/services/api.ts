@@ -37,6 +37,7 @@ export const getPokemonInfo = async (
 
   return {
     name: data.name,
+    id: data.id,
     image: data.sprites.other["official-artwork"].front_default,
     height: data.height,
     weight: data.weight,

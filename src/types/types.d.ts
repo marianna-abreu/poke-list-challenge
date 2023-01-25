@@ -1,5 +1,6 @@
 type PokemonDescriptions = {
   name: string;
+  id: string;
   image: string;
   height: number;
   weight: number;

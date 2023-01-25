@@ -49,7 +49,13 @@ const PokeList: React.FC = () => {
           );
         })}
       </DisplayList>
-      <CountPages count={totalPage} onChange={onPaginationClick} />
+      <CountPages
+        shape="rounded"
+        count={totalPage}
+        onChange={onPaginationClick}
+        showFirstButton
+        showLastButton
+      />
     </Wrapper>
   );
 };

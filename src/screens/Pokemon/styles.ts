@@ -19,7 +19,7 @@ export const PokeCard = styled("div")({
   height: "100%",
   display: "grid",
   justifyItems: "center",
-  padding: "4rem",
+  padding: "4rem 4rem 0rem 4rem ",
 });
 
 export const PokemonImage = styled("img")({
@@ -34,15 +34,31 @@ export const PokemonImage = styled("img")({
   padding: "2rem",
 });
 
-export const Descriptions = styled("div")({});
+export const Descriptions = styled("div")({
+  display: "grid",
+});
 
 export const PokemonDetails = styled("span")({
   justifyItems: "flex-start",
+  textTransform: "capitalize",
+});
+
+export const AddFavButton = styled(Button)({
+  color: "#000B",
+  border: "none",
+  height: "70px",
+  padding: "1rem",
+  marginTop: "1rem",
+  ":hover": {
+    color: "green",
+    border: "1px solid green",
+    backgroundColor: "none",
+  },
 });
 
 export const BackToHome = styled("a")({
   textDecoration: "none",
-  marginTop: "10rem",
+  marginTop: "5rem",
 });
 
 export const BackToHomeButton = styled(Button)({

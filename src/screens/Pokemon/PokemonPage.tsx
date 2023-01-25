@@ -1,10 +1,11 @@
 import { Favorite, Home } from "@mui/icons-material";
-import { IconButton, Tooltip } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemonInfo } from "../../services/api";
 import { addFavorite } from "../../services/favsHelper";
 import {
+  AddFavButton,
   BackToHome,
   BackToHomeButton,
   Descriptions,
@@ -43,19 +44,16 @@ const PokemonPage: React.FC = () => {
           <PokemonDetails>Name: {pokemonDetails.name}</PokemonDetails>
           <PokemonDetails>Height: {pokemonDetails.height / 10}</PokemonDetails>
           <PokemonDetails>Weight: {pokemonDetails.weight / 10}</PokemonDetails>
-          {/* <PokemonDetails>{pokemonDetails.abilities.name.map(a: ability: { name: ability.name})}</PokemonDetails> */}
-          <PokemonDetails>{pokemonDetails.stats.base_stat}</PokemonDetails>
-          {/* <PokemonDetails>{pokemonDetails.stats.stat.name}</PokemonDetails> */}
+          <PokemonDetails>Id: {pokemonDetails.id}</PokemonDetails>
         </Descriptions>
-        <Tooltip title="Add Favorite">
-          <IconButton
-            onClick={() => {
-              addFavorite(pokemonDetails);
-            }}
-          >
-            <Favorite />
-          </IconButton>
-        </Tooltip>
+        <AddFavButton
+          onClick={() => {
+            addFavorite(pokemonDetails);
+          }}
+          startIcon={<Favorite />}
+        >
+          Add Favorite
+        </AddFavButton>
       </PokeCard>
       <BackToHome href={`/`}>
         <BackToHomeButton
@@ -63,7 +61,7 @@ const PokemonPage: React.FC = () => {
           startIcon={<Home />}
           color="secondary"
         >
-          Volta para Home
+          Back to Home
         </BackToHomeButton>
       </BackToHome>
     </WrapperPokemonPage>
